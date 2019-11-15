@@ -13,6 +13,8 @@ const Container = styled.div({
   marginBottom: '1rem'
 });
 
+console.log("calendarRow -->dates: ", dates);
+
 export const CalendarRow = ({ updateStartDate, updateEndDate, id, setRemainingDays }) => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -35,8 +37,7 @@ export const CalendarRow = ({ updateStartDate, updateEndDate, id, setRemainingDa
         }
       });
       const remainingDays = calculateRemainingAbsentDays(transformInputDateListToMomentDate(stringDates), currentDate);
-      setRemainingDays(remainingDays);
-
+      setRemainingDays(id, remainingDays);
     }
 
   };
